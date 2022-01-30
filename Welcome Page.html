@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="704260229141-vrth1int3ogk9ttgcvfijk7ds1uursla.apps.googleusercontent.com">
+    <link rel="shortcut icon" href="TextIt Now - Logo.png" type="image/x-icon">
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+    <script defer src="Welcome page.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>TextItNow - SignIn</title>
+</head>
+<body>
+    <div class="data">
+        <p>Name</p>
+        <p id="alert alert-primary"></p>
+        <p>Profile Pic</p>
+        <img id="image" class="rounded-circle" width="100" height="100">
+        <p>Email</p>
+        <p id="email"></p>
+        <button type="button" class="btn btn-danger" onclick="signOut();">Sign Out</button>
+    </div>
+    <div id="checker"></div>
+
+    <section id="one">
+        <div id="text-Container">
+            <div id="main-Text">Sign in with your student email and TextIt Now</div>
+            <div id="main-Subtext">TextIt Now is a free online chatting app. you can chat with anyone from your school.</div>
+            <div class="g-signin2" data-width="175px" data-height="55px" data-onsuccess="onSignIn"></div>    
+        </div>
+        <div id="phone-Container">
+            <div id="phone-Image-Holder" class="first-Phone-Image">
+                <img id="phone-Image" src="Main Image Two.png">
+            </div>
+        </div>
+    </section>
+    <div class="line"></div> 
+    <div id="section-Text">See what TextIt Now is all about</div>
+    <svg id="down-Arrow" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+        <path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+    </svg>
+
+    <section id="two">
+        <div id="phone-Image-Holder">
+            <img id="phone-Image" src="Main Image One.PNG">
+        </div>
+        <div id="phone-Text-Container">
+            <h2 id="phone-Header">School Group Chat</h2>
+            <p id="phone-Paragraph"> Meet new people from your school with the whole school group chat feature. This feature really allows you to find people and groups in your school you may have never known about.</p>
+        </div>
+    </section>
+
+    <section id="three">
+        <div id="phone-Text-Container" class="phone-Text-Container-Two">
+            <h2 id="phone-Header-Two">Find Students In Your District</h2>
+            <p id="phone-Paragraph">With TextIt Now you can search and find other students all over your district just by searching their name. View supported districts at the bottom of the page under partners.</p>
+        </div>
+        <div id="phone-Image-Holder">
+            <img id="phone-Image" src="Main Image Three.png">
+        </div>
+    </section>
+    <div class="line"></div> 
+    <div id="section-Text">See what makes us different</div>
+    <svg id="down-Arrow" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+        <path d="M0 0h24v24H0V0z" fill="none"/><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+    </svg>
+
+    <section id="four">
+        <div id="card-Container-Holder">
+            <div id="card-Container">
+                <div id="different-Card">
+                    <div id="icon-Circle">
+                        <svg id="card-Icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                            <g>
+                                <rect fill="none" height="24" width="24"/>
+                                <g>
+                                    <path d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M19,19H5V5h14V19z"/>
+                                    <rect height="5" width="2" x="7" y="12"/>
+                                    <rect height="10" width="2" x="15" y="7"/><rect height="3" width="2" x="11" y="14"/>
+                                    <rect height="2" width="2" x="11" y="10"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div id="card-Title">Data Storage</div>
+                    <div id="card-Info">Us at TextIt Now don't save any unnecessary data and we are focusing more and more everyday to encrypt your data. We don't store any passwords you sign in with your email and that is the only thing linking you to your account.</div> 
+                </div>
+                <div id="different-Card">
+                    <div id="icon-Circle">
+                        <svg id="card-Icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                            <rect fill="none" height="24" width="24"/>
+                            <path d="M11,14H9c0-4.97,4.03-9,9-9v2C14.13,7,11,10.13,11,14z M18,11V9c-2.76,0-5,2.24-5,5h2C15,12.34,16.34,11,18,11z M7,4 c0-1.11-0.89-2-2-2S3,2.89,3,4s0.89,2,2,2S7,5.11,7,4z M11.45,4.5h-2C9.21,5.92,7.99,7,6.5,7h-3C2.67,7,2,7.67,2,8.5V11h6V8.74 C9.86,8.15,11.25,6.51,11.45,4.5z M19,17c1.11,0,2-0.89,2-2s-0.89-2-2-2s-2,0.89-2,2S17.89,17,19,17z M20.5,18h-3 c-1.49,0-2.71-1.08-2.95-2.5h-2c0.2,2.01,1.59,3.65,3.45,4.24V22h6v-2.5C22,18.67,21.33,18,20.5,18z"/>
+                        </svg>
+                    </div>
+                    <div id="card-Title">Connecting</div>
+                    <div id="card-Info">Knowing who you are connecting with is a very important part of TextIt Now we really want the students that use TextIt Now to know 100% who they are talking to, so we take that very seriously.</div> 
+                </div>
+                <div id="different-Card">
+                    <div id="icon-Circle">
+                        <svg id="card-Icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                            <g fill="none">
+                                <path d="M0 0h24v24H0V0z"/><path d="M0 0h24v24H0V0z" opacity=".87"/>
+                            </g>
+                            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"/>
+                        </svg>
+                    </div>
+                    <div id="card-Title">Security</div>
+                    <div id="card-Info">For all the districts that we allow TextIt Now is exclusive to only the students of that district. We stop other students from talking with other students/people outside their district so it is secure and safe for the students to ensure that the students know who they are chatting with.</div> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="six">
+        <div id="different-All-Text-Container">
+            <div id="different-Text-Container">
+                <div id="making-Us-Different">
+                    <h2 id="making-Us-Different-Header">About Our Workers</h2>
+                    <p id="making-Us-Different-Paragraph">Our workers are devoted to helping make sure the workflow is efficient and safe for all students to work and enjoy their time on TextIt Now.</p>
+                </div>
+            </div>
+            <div class="right-Text-Section" id="different-Text-Container">
+                <div id="making-Us-Different">
+                    <h2 id="making-Us-Different-Header">Accessibility</h2>
+                    <p id="making-Us-Different-Paragraph">We tried to make our web app as accessible as possible whereas some other messaging apps favor some types of phones, to do this we made the website so you can access your account on any device with a search engine.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="five">
+        <div id="all-bottom-Bar-Info">
+            <div class="topic">TextIt Now
+                <div class="sub-Topic-Holder">
+                    <a href="info.html" class="sub-Topic">Info</a>
+                    <a href="Welcome Page.html" style="width:100px;" class="sub-Topic">Get Started</a>
+                </div>
+            </div>
+            <div class="topic">Partners
+                <div class="sub-Topic-Holder">
+                    <a href="https://www.tdsb.on.ca/About-Us" class="sub-Topic">TDSB</a>
+                </div>
+            </div>
+            <div class="topic">Contact
+                <div class="sub-Topic-Holder">
+                    <a href="https://mail.google.com/mail/u/3/#inbox?compose=GTvVlcSBpgVkNNzZjxSrGGDNJNFlSVjFcJdklrlLbvJWcgKBTmWnFPSHNGjbfqdTblfXddTqZrqbW" class="sub-Topic">textitnow.ca@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="top-Bar">
+        <span id="title">TextIt <span id="title-Now">Now</span></span>
+    </div>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>

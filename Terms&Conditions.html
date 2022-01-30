@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="704260229141-vrth1int3ogk9ttgcvfijk7ds1uursla.apps.googleusercontent.com">
+    <link rel="shortcut icon" href="TextIt Now - Logo.png" type="image/x-icon">
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+    <script defer src="signedIn.js"></script>
+    <title>TextItNow - Terms & Conditions</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+    * {
+        font-family: 'Be Vietnam Pro', sans-serif;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #button-Container {
+        width:200px;
+        margin-left: auto;
+        margin-top: 10px;
+    }
+
+    .Header {
+        width:calc(100% - 50px);
+        font-size: 30px;
+        color: rgb(45, 45, 45);
+        margin-bottom: 2px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 500;
+    }
+
+    .Paragraph {
+        font-size: 20px;
+        width:calc(100% - 50px);
+        margin-left: auto;
+        margin-right: auto;
+        color: rgb(75, 75, 75);
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    #point-Form-Holder {
+        width:calc(100% - 75px);
+        margin-left: auto;
+        margin-right: 25px;
+        margin-bottom: 10px;
+        color: rgb(75, 75, 75);
+        font-size:20px;
+        font-weight: 500;
+    }
+
+    #point-Form-Text {
+        margin-left:5px;
+        margin-bottom: 5px;
+    }
+
+    @media (max-width:499px) {
+        body {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            width:100vw;
+            height:fit-content;
+        }
+
+        #top-Bar {
+            width:100%;
+            height:59px;
+            background:white;
+            border-bottom: 1px solid rgb(200, 200, 200);
+            position: fixed;
+            top:0px;
+            box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        #title {
+            font-weight: 700;
+            font-size: 30px;
+            position:absolute;
+            top:50%;
+            left:10px;
+            transform: translate(0px, -50%);
+            color: rgb(0, 132, 255);
+            width:1000px;
+        }
+
+        #title-Now {
+            color: rgb(50, 50, 50);
+        }
+        
+        #main-Containers {
+            width:100vw;
+            height:fit-content;
+            background:rgb(255, 255, 255);
+            overflow: hidden;
+            position:relative;
+            top:65px;
+            padding-bottom: 30px;
+        }
+
+        #bottom-Bar {
+            width:calc(100% - 50px);
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            height:fit-content;
+            background:rgb(255, 255, 255);
+            position:relative;
+        }
+
+        #button-Container {
+            width:200px;
+            margin-left: auto;
+        }
+
+        #accept-Button {
+            margin-left: auto;
+            padding: 5px 10px;
+            border-radius: 0px;
+            border: none;
+            font-size: 19px;
+            margin-top: 10px;
+            border: 2px solid rgb(200, 200, 200);
+            background: rgb(230, 230, 230);
+            color: rgb(0, 0, 0);
+            border-radius: 5px;
+            transition: .35s;
+        }
+
+        #accept-Button:hover {
+            box-shadow: 0px 2px 5px 2px rgba(100, 100, 100, 0.45);
+            cursor: pointer;
+            transition: .35s;
+        }
+
+        #accept-Button.optional {
+            margin-left: auto;
+            padding: 5px 10px;
+            border-radius: 0px;
+            border: none;
+            font-size: 19px;
+            margin-top: 10px;
+            border: 2px solid rgb(0, 118, 228);
+            background: rgb(0, 118, 228);
+            color: white;
+            border-radius: 5px;
+            transition: .35s;
+        }
+
+        #accept-Button.optional:hover {
+            box-shadow: 0px 2px 5px 2px rgba(0, 118, 228, 0.45);
+            cursor: pointer;
+            transition: .35s;
+        }
+
+        #cancle-Button {
+            padding: 7px 10px;
+            border-radius: 0px;
+            border: none;
+            font-size: 19px;
+            background: none;
+            color: rgb(0, 0, 0);
+            border: 1px solid rgb(0, 132, 255);
+            margin-left: 10px;
+            border-radius: 5px;
+            transition: .25s;
+        }
+
+        #cancle-Button:hover {
+            background: rgba(0, 118, 228, 0.25);
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        #page-Title {
+            font-size: 35px;
+            width:calc(100vw - 50px);
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 5px;
+        }
+
+        #top-Bar-2 {
+            display: none;
+        }
+
+        #bottom-Bar-2 {
+            display: none;
+        }
+
+        #right-Side-Img-Holder {
+            display:none;
+        }
+
+        #right-Side-Img-Holder {
+            display: none;
+        }
+    }
+
+    @media (min-width:499px) {
+        body {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            width:100vw;
+            height:fit-content;
+            padding-bottom: 30px;
+        }
+
+        #top-Bar {
+            width:100%;
+            height:59px;
+            background:white;
+            position: fixed;
+            left: 0px;
+            top:0px;
+            border-bottom: 1px solid rgb(200, 200, 200);
+            transition: .5s;
+        }
+
+        #top-Bar.scroll {
+            width:100%;
+            height:59px;
+            background:white;
+            border-bottom: 1px solid rgb(200, 200, 200);
+            position: fixed;
+            left: 0px;
+            top:0px;
+            box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.1);
+            transition: .5s;
+        }
+
+        #title {
+            font-weight: 700;
+            font-size: 30px;
+            position:absolute;
+            top:50%;
+            left:10px;
+            transform: translate(0px, -50%);
+            color: rgb(0, 132, 255);
+            width:1000px;
+        }
+
+        #title-Now {
+            color: rgb(50, 50, 50);
+        }
+
+        #left-Container {
+            width:100vw;
+            height:fit-content;
+        }
+        
+        #main-Containers {
+            width:450px;
+            height:fit-content;
+            background:rgb(255, 255, 255);
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.15);
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 30px;
+            margin-top: 80px;
+            padding-top: 60px;
+            padding-bottom: 30px;
+            position:relative;
+        }
+
+        #bottom-Bar {
+            width:calc(100% - 50px);
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            height:fit-content;
+            background:rgb(255, 255, 255);
+            position:relative;
+        }
+
+        #button-Container {
+            width:200px;
+            margin-left: auto;
+        }
+
+        #accept-Button {
+            margin-left: auto;
+            padding: 5px 10px;
+            border-radius: 0px;
+            border: none;
+            font-size: 19px;
+            margin-top: 10px;
+            border: 2px solid rgb(200, 200, 200);
+            background: rgb(230, 230, 230);
+            color: rgb(0, 0, 0);
+            border-radius: 5px;
+            transition: .35s;
+        }
+
+        #accept-Button:hover {
+            box-shadow: 0px 2px 5px 2px rgba(100, 100, 100, 0.45);
+            cursor: pointer;
+            transition: .35s;
+        }
+
+        #accept-Button.optional {
+            margin-left: auto;
+            padding: 5px 10px;
+            border-radius: 0px;
+            border: none;
+            font-size: 19px;
+            margin-top: 10px;
+            border: 2px solid rgb(0, 118, 228);
+            background: rgb(0, 118, 228);
+            color: white;
+            border-radius: 5px;
+            transition: .35s;
+        }
+
+        #accept-Button.optional:hover {
+            box-shadow: 0px 2px 5px 2px rgba(0, 118, 228, 0.45);
+            cursor: pointer;
+            transition: .35s;
+        }
+
+        #cancle-Button {
+            padding: 7px 10px;
+            border-radius: 0px;
+            border: none;
+            font-size: 19px;
+            background: none;
+            color: rgb(0, 0, 0);
+            border: 1px solid rgb(0, 132, 255);
+            margin-left: 10px;
+            border-radius: 5px;
+            transition: .25s;
+        }
+
+        #cancle-Button:hover {
+            background: rgba(0, 118, 228, 0.25);
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        #page-Title {
+            font-size: 35px;
+            margin-top: 15px;
+            width:calc(100% - 50px);
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 5px;
+        }
+
+        #top-Bar-2 {
+            width:100%;
+            height:59px;
+            background:white;
+            border-bottom: 1px solid rgb(200, 200, 200);
+            position: absolute;
+            top:0px;
+        }
+
+        #bottom-Bar-2 {
+            width:100%;
+            height:60px;
+            position:absolute;
+            bottom:0px;
+            background:rgb(255, 255, 255);
+        }
+    }
+
+    @media (max-width:724px) {
+        #right-Side-Img-Holder {
+            display: none;
+        }
+    }
+
+    @media (min-width:725px) {
+        body {
+            display: flex;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            width:100vw;
+            height:fit-content;
+            margin: 0px;
+            padding: 0px;
+            padding-bottom: 30px;
+        }
+
+        #top-Bar {
+            width:100%;
+            height:59px;
+            background:white;
+            position: fixed;
+            left: 0px;
+            top:0px;
+            border-bottom: 1px solid rgb(200, 200, 200);
+            transition: .5s;
+        }
+
+        #top-Bar.scroll {
+            width:100%;
+            height:59px;
+            background:white;
+            border-bottom: 1px solid rgb(200, 200, 200);
+            position: fixed;
+            left: 0px;
+            top:0px;
+            box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.1);
+            transition: .5s;
+        }
+
+        #title {
+            font-weight: 700;
+            font-size: 30px;
+            position:absolute;
+            top:50%;
+            left:10px;
+            transform: translate(0px, -50%);
+            color: rgb(0, 132, 255);
+            width:1000px;
+        }
+
+        #title-Now {
+            color: rgb(50, 50, 50);
+        }
+
+        #left-Container {
+            width:70vw;
+            height:fit-content;
+        }
+        
+        #main-Containers {
+            width:450px;
+            height:fit-content;
+            background:rgb(255, 255, 255);
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.15);
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 90px;
+            padding-top: 60px;
+        }
+
+        #bottom-Bar {
+            width:calc(100% - 50px);
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            height:fit-content;
+            background:rgb(255, 255, 255);
+            position:relative;
+        }
+
+        #accept-Button {
+            margin-left: auto;
+            padding: 5px 10px;
+            border-radius: 0px;
+            border: none;
+            font-size: 19px;
+            margin-top: 10px;
+            border: 2px solid rgb(200, 200, 200);
+            background: rgb(230, 230, 230);
+            color: rgb(0, 0, 0);
+            border-radius: 5px;
+            transition: .35s;
+        }
+
+        #accept-Button:hover {
+            box-shadow: 0px 2px 5px 2px rgba(100, 100, 100, 0.45);
+            cursor: pointer;
+            transition: .35s;
+        }
+
+        #accept-Button.optional {
+            margin-left: auto;
+            padding: 5px 10px;
+            border-radius: 0px;
+            border: none;
+            font-size: 19px;
+            margin-top: 10px;
+            border: 2px solid rgb(0, 118, 228);
+            background: rgb(0, 118, 228);
+            color: white;
+            border-radius: 5px;
+            transition: .35s;
+        }
+
+        #accept-Button.optional:hover {
+            box-shadow: 0px 2px 5px 2px rgba(0, 118, 228, 0.45);
+            cursor: pointer;
+            transition: .35s;
+        }
+
+        #cancle-Button {
+            padding: 7px 10px;
+            border-radius: 0px;
+            border: none;
+            font-size: 19px;
+            background: none;
+            color: rgb(0, 0, 0);
+            border: 1px solid rgb(0, 132, 255);
+            margin-right: 5px;
+            border-radius: 5px;
+            transition: .25s;
+        }
+
+        #cancle-Button:hover {
+            background: rgba(0, 118, 228, 0.25);
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        #page-Title {
+            font-size: 35px;
+            margin-top: 15px;
+            width:calc(100% - 50px);
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 5px;
+        }
+
+        #top-Bar-2 {
+            width:100%;
+            height:59px;
+            background:white;
+            border-bottom: 1px solid rgb(200, 200, 200);
+            position: absolute;
+            top:0px;
+        }
+
+        #bottom-Bar-2 {
+            width:100%;
+            height:59px;
+            position:absolute;
+            bottom:0px;
+            background:rgb(255, 255, 255);
+        }
+    }
+
+    @media (min-width:725px) {
+        #page {
+            width:800px;
+            height:fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            position:relative;
+            display: flex;
+        }
+
+        #right-Side-Img-Holder {
+            margin-top: 90px;
+            width:30vw;
+            height:fit-content;
+        }
+
+        #Terms-Conditions-Img {
+            width:200px;
+            transform: rotate(5deg);
+            box-shadow: 0px 5px 5px 3px rgba(0, 118, 228, 0.15);
+            height:fit-content;
+            padding-bottom: 2px;
+            border-radius: 10px;
+            background:rgb(240, 250, 255);
+            padding-top: 10px;
+        }
+
+        #top-Header-Icon-Holder {
+            display: flex;
+        }
+
+        #chats-Icon {
+            width:75px;
+            height:75px;
+            margin-left: auto;
+            margin-right: auto;
+            fill:rgb(0, 102, 255);
+        }
+
+        #top-Header-Holder {
+            width:calc(100% - 100px);
+            height: 75px;
+        }
+
+        #header-Terms-Line {
+            width:85px;
+            margin-left: auto;
+            margin-right: 20px;
+            margin-top: 7px;
+            margin-bottom: 7px;
+            height:10px;
+            background:linear-gradient(to right bottom,rgb(0, 102, 255), rgb(0, 174, 255));
+            border-radius: 25px;
+        }
+
+        .paragraph-Line-One {
+            height:5px;
+            margin-bottom: 4px;
+            background:linear-gradient(to right bottom,rgb(92, 157, 255),rgb(98, 205, 255));
+            border-radius: 25px;
+        }
+
+        #section-Holder {
+            width:calc(100% - 35px);
+            margin-bottom: 19px;
+            height:fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #header-Terms-Line-Section {
+            margin-left: 0px;
+            margin-top: 5px;
+            margin-bottom: 8px;
+            height:10px;
+            background:linear-gradient(to right bottom,rgb(0, 102, 255), rgb(0, 174, 255));
+            border-radius: 25px;
+        }
+
+        .paragraph-Line-One-Section {
+            height:5px;
+            margin-bottom: 4px;
+            background:linear-gradient(to right bottom,rgb(92, 157, 255),rgb(98, 205, 255));
+            border-radius: 25px;
+            margin-left: 2.5px;
+        }
+
+        #accept-Button-Line {
+            width:60px;
+            height:15px;
+            margin-top: 13px;
+            border-radius: 25px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: 10px;
+            background:linear-gradient(to right bottom,rgb(0, 102, 255), rgb(0, 174, 255));
+        }
+
+        #Terms-Conditions-Img-2 {
+            width:200px;
+            transform: rotate(-2deg);
+            box-shadow: 0px 5px 5px 3px rgba(0, 179, 15, 0.15);
+            height:fit-content;
+            margin-left: 5px;
+            margin-top: 30px;
+            padding-bottom: 2px;
+            border-radius: 10px;
+            background:rgb(240, 255, 242);
+            padding-top: 10px;
+        }
+
+        #profile-Icon {
+            width:75px;
+            height:75px;
+            margin-left: auto;
+            margin-right: auto;
+            fill:rgb(0, 148, 37);
+        }
+
+        #header-Terms-Line-Section-Two {
+            margin-left: 0px;
+            margin-top: 5px;
+            margin-bottom: 8px;
+            height:10px;
+            background:linear-gradient(to right bottom,rgb(48, 151, 0), rgb(0, 180, 30));
+            border-radius: 25px;
+        }
+
+        .paragraph-Line-One-Section-Two {
+            height:5px;
+            margin-bottom: 4px;
+            background:linear-gradient(to right bottom,rgb(42, 190, 42),rgb(106, 240, 106));
+            border-radius: 25px;
+            margin-left: 2.5px;
+        }
+
+        #accept-Button-Line-Two {
+            width:60px;
+            height:15px;
+            margin-top: 13px;
+            border-radius: 25px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: 10px;
+            background:linear-gradient(to right bottom,rgb(48, 151, 0), rgb(0, 180, 30));
+        }
+
+        #Terms-Conditions-Img-3 {
+            width:200px;
+            transform: rotate(2deg);
+            box-shadow: 0px 5px 5px 3px rgba(179, 0, 0, 0.15);
+            height:fit-content;
+            margin-top: 30px;
+            padding-bottom: 2px;
+            border-radius: 10px;
+            background:rgb(255, 240, 240);
+            padding-top: 10px;
+        }
+
+        #profile-Icon {
+            width:75px;
+            height:75px;
+            margin-left: auto;
+            margin-right: auto;
+            fill:rgb(0, 148, 0);
+        }
+
+        #header-Terms-Line-Section-Three {
+            margin-left: 0px;
+            margin-top: 5px;
+            margin-bottom: 8px;
+            height:10px;
+            background:linear-gradient(to right bottom,rgb(151, 0, 0), rgb(180, 0, 0));
+            border-radius: 25px;
+        }
+
+        .paragraph-Line-One-Section-Three {
+            height:5px;
+            margin-bottom: 4px;
+            background:linear-gradient(to right bottom,rgb(190, 42, 42),rgb(240, 106, 106));
+            border-radius: 25px;
+            margin-left: 2.5px;
+        }
+
+        #accept-Button-Line-Three {
+            width:60px;
+            height:15px;
+            margin-top: 13px;
+            border-radius: 25px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: 10px;
+            background:linear-gradient(to right bottom,rgb(151, 0, 0), rgb(180, 0, 0));
+        }
+
+        #data-Icon {
+            width:75px;
+            height:75px;
+            margin-left: auto;
+            margin-right: auto;
+            fill:rgb(148, 0, 0);
+        }
+    }
+
+    #top-Bar-Observer {
+        position: absolute;
+        top:0px;
+        width:100px;
+        height:5px;
+    }
+
+    #terms-Conditions-Link:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    #checkbox {
+        width:20px;
+        height:20px;
+        background:white;
+        border-radius: 0px;
+        border: 1px solid rgb(50, 50, 50);
+        margin-top: 4px;
+        margin-right:4px;
+    }
+
+    #checkbox:checked {
+        width:20px;
+        height:20px;
+        background:rgb(0, 132, 255);
+        border-radius: 0px;
+        border: 1px solid rgb(50, 50, 50);
+    }
+
+    #checkbox:hover {
+        cursor: pointer;
+    }
+
+    ::-webkit-scrollbar {
+        width:7px;
+        height:0px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 0px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: rgb(0, 132, 255);
+        border-radius: 20px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        border-radius: 20px;
+        background: rgb(0, 87, 168);
+    }
+
+    #error {
+        color: rgb(255, 25, 25);
+        margin-bottom: 10px;
+        display: none;
+    }
+
+    #profile-Img-Holder {
+        width:47px;
+        height:47px;
+        position: absolute;
+        top:50%;
+        right: 12px;
+        transform: translate(0px, -50%);
+        border-radius: 100%;
+        overflow: hidden;
+    }
+
+    #profile-Img {
+        width:100%;
+        height:100%;
+    }
+</style>
+<body>
+    <div style="display: none;" class="g-signin2" data-width="175px" data-height="55px" data-onsuccess="onSignIn"></div>
+    <div id="top-Bar-Observer"></div>
+    <div id="page">
+        <div id="left-Container">
+            <div id="main-Containers">
+                <div id="all-Text">
+                    <div id="top-Bar-2">
+                        <span id="title">TextIt <span id="title-Now">Now</span></span>
+                        <div id="profile-Img-Holder">
+                            <img id="profile-Img" src="">
+                        </div>
+                    </div>
+                    <div id="page-Title">TextItNow Terms and Conditions</div>
+                    <header class="Header">Introduction</header>
+                    <p class="Paragraph">These Website Standard Terms and Conditions written on this webpage shall manage your use of our website, TextItNow accessible at www.textitnow.ca</p>
+                    <p class="Paragraph">These Terms will be applied fully and affect to your use of this Website. By using this Website, you agreed to accept all terms and conditions written in here. You must not use this Website if you disagree with any of these Website Standard Terms and Conditions.</p>
+                    <p class="Paragraph">People below 13 years old are not allowed to use this Website.</p>
+                    <header class="Header">Intellectual Property Rights</header>
+                    <p class="Paragraph">Other than the content you own, under these Terms, TextItNow and/or its licensors own all the intellectual property rights and materials contained in this Website.</p>
+                    <p class="Paragraph">You are granted limited license only for purposes of viewing the material contained on this Website.</p>
+                    <header class="Header">Restrictions</header>
+                    <p class="Paragraph">You are specifically restricted from all of the following:</p>
+                    <div id="point-Form-Holder">
+                        <div id="point-Form" style="display: flex;">• 
+                            <div id="point-Form-Text">Publishing any Website material in any other media;</div>
+                        </div>
+                        <div id="point-Form" style="display: flex;">• 
+                            <div id="point-Form-Text">Selling, sublicensing and/or otherwise commercializing any Website material;</div>
+                        </div>
+                        <div id="point-Form" style="display: flex;">• 
+                            <div id="point-Form-Text">Publicly performing and/or showing any Website material;</div>
+                        </div>
+                        <div id="point-Form" style="display: flex;">• 
+                            <div id="point-Form-Text">Using this Website in any way that is or may be damaging to this Website;</div>
+                        </div>
+                        <div id="point-Form" style="display: flex;">• 
+                            <div id="point-Form-Text">Using this Website in any way that impacts user access to this Website;</div>
+                        </div>
+                        <div id="point-Form" style="display: flex;">• 
+                            <div id="point-Form-Text">Using this Website contrary to applicable laws and regulations, or in any way may cause harm to the Website, or to any person or business entity;</div>
+                        </div>
+                        <div id="point-Form" style="display: flex;">• 
+                            <div id="point-Form-Text">Engaging in any data mining, data harvesting, data extracting or any other similar activity in relation to this Website;</div>
+                        </div>
+                        <div id="point-Form" style="display: flex;">• 
+                            <div id="point-Form-Text">Using this Website to engage in any advertising or marketing.</div>
+                        </div>
+                    </div>
+                    <p class="Paragraph">Certain areas of this Website are restricted from being access by you and TextItNow may further restrict access by you to any areas of this Website, at any time, in absolute discretion. Any user ID and password you may have for this Website are confidential and you must maintain confidentiality as well.</p>
+                    <header class="Header">Your Content</header>
+                    <p class="Paragraph">In these Website Standard Terms and Conditions, "Your Content" shall mean any audio, video text, images or other material you choose to display on this Website. By displaying Your Content, you grant TextItNow a non-exclusive, worldwide irrevocable, sub licensable license to use, reproduce, adapt, publish, translate and distribute it in any and all media.</p>
+                    <p class="Paragraph">Your Content must be your own and must not be invading any third-party’s rights. TextItNow reserves the right to remove any of Your Content from this Website at any time without notice.</p>
+                    <header class="Header">Your Privacy</header>
+                    <p class="Paragraph">Please read Privacy Policy below.</p>
+                    <header class="Header">No warranties</header>
+                    <p class="Paragraph">This Website is provided "as is," with all faults, and TextItNow express no representations or warranties, of any kind related to this Website or the materials contained on this Website. Also, nothing contained on this Website shall be interpreted as advising you.</p>
+                    <header class="Header">Limitation of liability</header>
+                    <p class="Paragraph">In no event shall TextItNow, nor any of its officers, directors and employees, shall be held liable for anything arising out of or in any way connected with your use of this Website whether such liability is under contract.  TextItNow, including its officers, directors and employees shall not be held liable for any indirect, consequential or special liability arising out of or in any way related to your use of this Website.</p>
+                    <header class="Header">Indemnification</header>
+                    <p class="Paragraph">You hereby indemnify to the fullest extent TextItNow from and against any and/or all liabilities, costs, demands, causes of action, damages and expenses arising in any way related to your breach of any of the provisions of these Terms.</p>
+                    <header class="Header">Severability</header>
+                    <p class="Paragraph">If any provision of these Terms is found to be invalid under any applicable law, such provisions shall be deleted without affecting the remaining provisions herein.</p>
+                    <header class="Header">Variation of Terms</header>
+                    <p class="Paragraph">TextItNow is permitted to revise these Terms at any time as it sees fit, and by using this Website you are expected to review these Terms on a regular basis.</p>
+                    <header class="Header">Assignment</header>
+                    <p class="Paragraph">The TextItNow is allowed to assign, transfer, and subcontract its rights and/or obligations under these Terms without any notification. However, you are not allowed to assign, transfer, or subcontract any of your rights and/or obligations under these Terms.</p>
+                    <header class="Header">Entire Agreement</header>
+                    <p class="Paragraph">These Terms constitute the entire agreement between TextItNow and you in relation to your use of this Website, and supersede all prior agreements and understandings.</p>
+                    <header class="Header">Governing Law & Jurisdiction</header>
+                    <p class="Paragraph">These Terms will be governed by and interpreted in accordance with the laws of the State of af, and you submit to the non-exclusive jurisdiction of the state and federal courts located in af for the resolution of any disputes.</p>
+                    <div id="bottom-Bar">
+                        <div id="error">Please click the check box to agree with TextItNow Terms and Conditions</div>
+                        <div id="accepting" style="display: flex;">
+                            <input type="checkbox" id="checkbox" name="checkbox" value="Bike">
+                            <p for="checkbox" style="width:375px;">By clicking the check box you are acknowledging that you have read and agree with the <span style="color: rgb(0, 132, 255);" id="terms-Conditions-Link">Terms and Conditions</span> above.</p><br>
+                        </div>
+
+                        <div id="button-Container">
+                            <button type="button" id="cancle-Button" onclick="signOut();">Cancel</button>
+                            <button id="accept-Button">I Agree</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="right-Side-Img-Holder">
+            <div id="Terms-Conditions-Img">
+                <div id="top-Header-Icon-Holder">
+                    <svg id="chats-Icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+                    </svg>
+                    <div id="top-Header-Holder">
+                        <div id="header-Terms-Line" style="width:85px;"></div>
+                        <div class="paragraph-Line-One" style="width:80px;"></div>
+                        <div class="paragraph-Line-One" style="width:65px;"></div>
+                        <div class="paragraph-Line-One" style="width:75px;"></div>
+                        <div class="paragraph-Line-One" style="width:65px;"></div>
+                        <div class="paragraph-Line-One" style="width:80px;"></div>
+                    </div>
+                </div>
+                <div id="section-Holder">
+                    <div id="header-Terms-Line-Section" style="width:120px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:160px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:150px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:155px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:145px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:160px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:75px;"></div>
+                </div>
+                <div id="section-Holder">
+                    <div id="header-Terms-Line-Section" style="width:100px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:155px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:162px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:155px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:147px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:159px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:150px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:165px;"></div>
+                    <div class="paragraph-Line-One-Section" style="width:20px;"></div>
+                </div>
+                <div id="accept-Button-Line"></div>
+            </div>
+    
+            <div id="Terms-Conditions-Img-2">
+                <div id="top-Header-Icon-Holder">
+                    <svg id="profile-Icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                    </svg>
+                    <div id="top-Header-Holder">
+                        <div id="header-Terms-Line-Section-Two" style="width:85px;"></div>
+                        <div class="paragraph-Line-One-Section-Two" style="width:80px;"></div>
+                        <div class="paragraph-Line-One-Section-Two" style="width:73px;"></div>
+                        <div class="paragraph-Line-One-Section-Two" style="width:78px;"></div>
+                        <div class="paragraph-Line-One-Section-Two" style="width:75px;"></div>
+                        <div class="paragraph-Line-One-Section-Two" style="width:65px;"></div>
+                    </div>
+                </div>
+                <div id="section-Holder">
+                    <div id="header-Terms-Line-Section-Two" style="width:120px;"></div>
+                    <div class="paragraph-Line-One-Section-Two" style="width:160px;"></div>                    <div class="paragraph-Line-One-Section-Two" style="width:145px;"></div>
+                    <div class="paragraph-Line-One-Section-Two" style="width:160px;"></div>
+                    <div class="paragraph-Line-One-Section-Two" style="width:150px;"></div>
+                    <div class="paragraph-Line-One-Section-Two" style="width:155px;"></div>
+                    <div class="paragraph-Line-One-Section-Two" style="width:75px;"></div>
+                </div>
+                <div id="section-Holder">
+                    <div id="header-Terms-Line-Section-Two" style="width:100px;"></div>
+                    <div class="paragraph-Line-One-Section-Two" style="width:155px;"></div>
+                    <div class="paragraph-Line-One-Section-Two" style="width:147px;"></div>
+                    <div class="paragraph-Line-One-Section-Two" style="width:159px;"></div>
+                    <div class="paragraph-Line-One-Section-Two" style="width:155px;"></div>
+                    <div class="paragraph-Line-One-Section-Two" style="width:162px;"></div>                    <div class="paragraph-Line-One-Section-Two" style="width:150px;"></div>
+                    <div class="paragraph-Line-One-Section-Two" style="width:165px;"></div>
+                    <div class="paragraph-Line-One-Section-Two" style="width:20px;"></div>
+                </div>
+                <div id="accept-Button-Line-Two"></div>
+            </div>
+
+            <div id="Terms-Conditions-Img-3">
+                <div id="top-Header-Icon-Holder">
+                    <svg id="data-Icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-5h2v5zm4 0h-2v-3h2v3zm0-5h-2v-2h2v2zm4 5h-2V7h2v10z"/>
+                    </svg>
+                    <div id="top-Header-Holder">
+                        <div id="header-Terms-Line-Section-Three" style="width:85px;"></div>
+                        <div class="paragraph-Line-One-Section-Three" style="width:80px;"></div>
+                        <div class="paragraph-Line-One-Section-Three" style="width:65px;"></div>
+                        <div class="paragraph-Line-One-Section-Three" style="width:75px;"></div>
+                        <div class="paragraph-Line-One-Section-Three" style="width:65px;"></div>
+                        <div class="paragraph-Line-One-Section-Three" style="width:80px;"></div>
+                    </div>
+                </div>
+                <div id="section-Holder">
+                    <div id="header-Terms-Line-Section-Three" style="width:120px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:160px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:150px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:155px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:145px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:160px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:75px;"></div>
+                </div>
+                <div id="section-Holder">
+                    <div id="header-Terms-Line-Section-Three" style="width:100px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:155px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:162px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:155px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:147px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:159px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:150px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:165px;"></div>
+                    <div class="paragraph-Line-One-Section-Three" style="width:20px;"></div>
+                </div>
+                <div id="accept-Button-Line-Three"></div>
+            </div>
+        </div>
+        <div id="top-Bar">
+            <span id="title">TextIt <span id="title-Now">Now</span></span>
+        </div>
+    </div>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+<script defer>
+    const observeThis = document.getElementById("top-Bar-Observer")
+    const topBar = document.getElementById("top-Bar")
+    var observer = new IntersectionObserver(entries => {
+        if(entries[0].isIntersecting == false) {
+            topBar.classList.add("scroll")
+        } else {
+            topBar.classList.remove("scroll")
+        }
+    })
+
+    observer.observe(observeThis)
+
+    setInterval(function() {
+        const checkbox = document.querySelector('#checkbox');
+        if (checkbox.checked == true){
+            document.getElementById("accept-Button").classList.add("optional")
+        } else {
+            document.getElementById("accept-Button").classList.remove("optional")
+        }
+    }, 100)
+
+    document.getElementById("terms-Conditions-Link").addEventListener("click", function() {
+        // var y = document.body.scrollTop;
+        var y = document.body.scrollTop
+        console.log(y)
+        // setInterval(function() {
+        //     window.scrollTo(0, y)
+        //     y--
+        // }, 1)
+    })
+</script>
+</html>
